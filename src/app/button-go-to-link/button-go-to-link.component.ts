@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from "@angular/core";
 export class ButtonGoToLinkComponent implements OnInit {
   @Input() name: string;
   @Input() icon: string;
+  @Input() idpartido: number;
   constructor() {}
 
   ngOnInit() {}
