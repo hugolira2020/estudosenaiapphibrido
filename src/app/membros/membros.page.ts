@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+import { Membro } from "../models/membro";
 import { ApiService } from "../services/api.service";
 
 @Component({
@@ -8,6 +9,7 @@ import { ApiService } from "../services/api.service";
   styleUrls: ["./membros.page.scss"],
 })
 export class MembrosPage implements OnInit {
+  membros: Array<Membro> = [];
   idPartido: number;
   constructor(public router: ActivatedRoute, private apiserv: ApiService) {}
 
@@ -16,9 +18,10 @@ export class MembrosPage implements OnInit {
     this.idPartido = this.router.snapshot.params.id;
     this.buscarMembrosDoPartido(this.idPartido);
   }
-  public buscarMembrosDoPartido(idPart: number) {
+  public buscarMembrosDoPartido(idPart: number): void {
     this.apiserv.getmembros(this.idPartido).subscribe((response) => {
-      console.log(response);
+      //console.log(response);
+      this.membros = response.dados;
     });
   }
 }

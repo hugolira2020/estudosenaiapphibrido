@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Partido } from "../models/partido";
 import { ApiService } from "../services/api.service";
 
 @Component({
@@ -7,7 +8,7 @@ import { ApiService } from "../services/api.service";
   styleUrls: ["tab1.page.scss"],
 })
 export class Tab1Page implements OnInit {
-  public partidos = [];
+  public partidos: Array<Partido> = [];
   constructor(public apiService: ApiService) {}
 
   ngOnInit() {
