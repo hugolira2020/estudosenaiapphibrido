@@ -1,8 +1,23 @@
 img {
-  height: 130px;
-  width: 130px;
+  height: 65px;
+  width: 65px;
 }
 
 .list-card {
   text-align: center;
+  width: 85%;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-shadow: 1px 5px 10px grey;
+}
+
+span {
+  color: brown;
+  font-style: italic;
+  font-weight: bold;
+}
+
+body {
+  background-color: darkolivegreen;
 }
