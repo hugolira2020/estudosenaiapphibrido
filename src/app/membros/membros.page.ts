@@ -22,20 +22,29 @@ export class MembrosPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.loading = true;
     //console.log(this.router.snapshot.params.id);
     this.idPartido = this.router.snapshot.params.id;
     this.buscarMembrosDoPartido(this.idPartido);
-    //setTimeout(() => {
-    //   this.abrirModal();
-    //}, 3000);
   }
   public buscarMembrosDoPartido(idPart: number): void {
+    this.loading = true;
+    this.membros = [];
     this.apiserv.getmembros(this.idPartido).subscribe((response) => {
       //console.log(response);
       this.membros = response.dados;
       this.loading = false;
     });
+  }
+
+  search(event): void {
+    const busca = event.target.value;
+    this.membros = this.membros.filter((membro) => {
+      return membro.nome.toLowerCase().includes(busca.toLowerCase());
+    });
+  }
+
+  clear(): void {
+    this.buscarMembrosDoPartido(this.idPartido);
   }
 
   async abrirModal(idDeputado: number) {

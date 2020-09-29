@@ -1,9 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>membros</ion-title>
-    <ion-buttons slot="start">
+    <ion-title size="small">membros</ion-title>
+    <ion-buttons>
       <ion-back-button icon="person"> </ion-back-button>
     </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar (ionInput)="search($event)" (ionClear)="clear()">
+    </ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
