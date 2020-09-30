@@ -9,4 +9,21 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content>
+  <ion-card *ngIf="carregamentoFinalizado">
+    <ion-avatar>
+      <img [src]="deputado.ultimoStatus.urlFoto" />
+    </ion-avatar>
+    <ion-card-header>
+      <ion-card-subtitle>
+        <!-- {{deputado.ultimoStatus.siglaPartido}}//{{deputado.ufNascimento}}-->
+      </ion-card-subtitle>
+      <ion-card-title
+        >{{deputado.nomeCivil}}<br />{{deputado.ufNascimento}}</ion-card-title
+      >
+    </ion-card-header>
+    <ion-card-content>
+      {{deputado.ultimoStatus.condicaoEleitoral}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

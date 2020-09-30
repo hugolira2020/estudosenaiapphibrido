@@ -37,9 +37,14 @@ export class MembrosPage implements OnInit {
   }
 
   search(event): void {
-    const busca = event.target.value;
+    let valorProcurado = event.target.value;
+    if (!valorProcurado) {
+      this.buscarMembrosDoPartido(this.idPartido);
+      return;
+    }
+
     this.membros = this.membros.filter((membro) => {
-      return membro.nome.toLowerCase().includes(busca.toLowerCase());
+      return membro.nome.toLowerCase().includes(valorProcurado.toLowerCase());
     });
   }
 
