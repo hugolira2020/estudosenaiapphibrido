@@ -16,6 +16,10 @@ const routes: Routes = [
     path: 'modal-deputado',
     loadChildren: () => import('./modal-deputado/modal-deputado.module').then( m => m.ModalDeputadoPageModule)
   },
+  {
+    path: 'modal-comida',
+    loadChildren: () => import('./modal-comida/modal-comida.module').then( m => m.ModalComidaPageModule)
+  },
 ];
 @NgModule({
   imports: [
