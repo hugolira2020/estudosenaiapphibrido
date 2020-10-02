@@ -23,9 +23,14 @@
       <ion-col>
         <ion-item>
           <ion-label>Tipo</ion-label>
-          <ion-select value="peperoni" placeholder="Selecione o Tipo">
-            <ion-select-option value="peperoni">Árabe</ion-select-option>
-            <ion-select-option value="hawaii">Mexicana</ion-select-option>
+          <ion-select
+            formControlName="tipo"
+            placeholder="Selecione o Tipo"
+            okText="Okay"
+            cancelText="Dismiss"
+          >
+            <ion-select-option value="arabe">Árabe</ion-select-option>
+            <ion-select-option value="mexicana">Mexicana</ion-select-option>
           </ion-select>
         </ion-item>
       </ion-col>
@@ -35,6 +40,7 @@
         <ion-item>
           <ion-label>DD MM YY</ion-label>
           <ion-datetime
+            formControlName="dataEntrega"
             displayFormat="DD MM YY"
             placeholder="Selecione a Data"
           ></ion-datetime>
@@ -44,7 +50,13 @@
     <ion-row>
       <ion-col>
         <ion-item>
-          <ion-range min="-0" max="10" pin color="secondary">
+          <ion-range
+            formControlName="avaliacao"
+            min="-0"
+            max="10"
+            pin
+            color="secondary"
+          >
             <ion-icon
               slot="start"
               size="small"
@@ -61,6 +73,7 @@
         <ion-item>
           <ion-label>HH mm</ion-label>
           <ion-datetime
+            formControlName="horaEntrega"
             displayFormat="HH mm"
             placeholder="Selecione a Hora de Entrega"
           ></ion-datetime>
@@ -70,18 +83,18 @@
 
     <ion-row>
       <ion-col>
-        <ion-radio-group value="grape">
+        <ion-radio-group formControlName="isPimenta">
           <ion-list-header>
             <ion-label>Com pimenta?</ion-label>
           </ion-list-header>
           <ion-item>
             <ion-label>Sim</ion-label>
-            <ion-radio slot="start" color="success" value="apple"></ion-radio>
+            <ion-radio slot="start" color="success" value="sim"></ion-radio>
           </ion-item>
 
           <ion-item>
             <ion-label>Não</ion-label>
-            <ion-radio slot="start" color="tertiary" value="grape"></ion-radio>
+            <ion-radio slot="start" color="tertiary" value="nao"></ion-radio>
           </ion-item>
         </ion-radio-group>
       </ion-col>
