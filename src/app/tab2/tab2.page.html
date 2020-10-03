@@ -13,4 +13,26 @@
       <ion-title size="large">Comidas</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-list>
+    <ion-item *ngFor="let comida of comidas; let id = index">
+      <ion-avatar slot="start">
+        <img src="http://lorempixel.com/100/60/food/" />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{comida.nome}}</h2>
+        <ion-text color="medium">
+          <h3>{{comida.tipo}}</h3>
+        </ion-text>
+
+        <p>{{comida.descricao}}</p>
+      </ion-label>
+      <ion-button slot="end">
+        <ion-icon name="pencil-outline"></ion-icon>
+      </ion-button>
+      <ion-button slot="end" (click)="remover(id)">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
 </ion-content>
