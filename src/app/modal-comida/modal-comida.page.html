@@ -1,6 +1,8 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>modal-comida</ion-title>
+    <ion-title size="small">
+      {{isEdit === true ? 'Atualizar' : 'Cadastrar'}}
+    </ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="fecharModal()">
         <ion-icon name="close"></ion-icon>
@@ -109,7 +111,7 @@
     <ion-row>
       <ion-col>
         <ion-button type="submit" color="danger" expand="block">
-          Salvar
+          {{isEdit === true ?'Atualizar' : 'Salvar' }}
         </ion-button>
       </ion-col>
     </ion-row>

@@ -19,12 +19,15 @@ export class ComidaService {
     return comidas;
   }
 
-  public async salvarComida(comida) {
-    //this.getAll().then((comidas) => {
-    //  console.log(comidas);
-    //  comidas.push(comida);
-    //  this.storage.set("comidas", comidas);
-    //});
+  public async salvarComida(comida, id: number) {
+    if (id || id === 0) {
+      await this.update(id, comida);
+      return;
+    }
+    await this.save(comida);
+  }
+
+  public async save(comida) {
     let comidas = await this.getAll();
     if (!comidas) {
       comidas = [];
@@ -32,6 +35,14 @@ export class ComidaService {
     comidas.push(comida);
     this.storage.set("comidas", JSON.stringify(comidas));
   }
+  public async update(id: number, comida) {
+    let comidas = await this.getAll();
+    comidas = comidas.map((data, index) => {
+      return id === index ? comida : data;
+    });
+    this.storage.set("comidas", JSON.stringify(comidas));
+  }
+
   public async removeAll() {
     await this.storage.remove("comidas");
   }
@@ -39,5 +50,17 @@ export class ComidaService {
     let comidas = await this.getAll();
     comidas.splice(index, 1);
     await this.storage.set("comidas", JSON.stringify(comidas));
+  }
+  public async getComida(key: number) {
+    let comidas = await this.getAll();
+    const comidaProcurada = comidas.find((comida, idC) => {
+      if (idC === key) {
+        return comida;
+      }
+    });
+    return comidaProcurada;
+    //console.log(teste);
+    //console.log(comidas);
+    //console.log(key);
   }
 }
